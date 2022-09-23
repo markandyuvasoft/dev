@@ -6,17 +6,11 @@ import Author from "../models/author.js";
 const bookSchema=new mongoose.Schema({
     name:{
         type:String,
-        required:true,
-        minlength:3,
-        maxlength:50
     },
       author:Author.schema,
     genre:{
         
         type:String,
-        required:true,
-        minlength:3,
-        maxlength:20
     }
 
 })
