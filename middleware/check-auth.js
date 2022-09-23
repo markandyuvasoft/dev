@@ -16,7 +16,7 @@ next()
     catch(error)
     {
         return res.status(401).json({
-            msg: 'only access admin'
+            msg: 'only access authorised person'
         })
     }
 } 

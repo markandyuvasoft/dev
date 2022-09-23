@@ -1,9 +1,10 @@
 import  express  from "express";
+import checkauth from "../middleware/check-auth.js";
 import Book from "../models/book.js";
 const router=express.Router()
 
 //post method start......................................
-router.post("/post",(req,res,next)=>{
+router.post("/post",checkauth,(req,res,next)=>{
 
     const user = new Book(req.body)
   
@@ -20,7 +21,7 @@ router.post("/post",(req,res,next)=>{
 //post method end......................................
 
 //get method start......................................
-router.get("/get",async(req,res)=>{
+router.get("/get",checkauth,async(req,res)=>{
 
     try{
 
@@ -36,7 +37,7 @@ router.get("/get",async(req,res)=>{
 //get method end......................................
 
 //put method start......................................
-router.put("/update/:id", async (req,res)=>{
+router.put("/update/:id",checkauth, async (req,res)=>{
     try{
     
     const _id= req.params.id;
@@ -53,7 +54,7 @@ router.put("/update/:id", async (req,res)=>{
 //put method end......................................
 
 //delete method start......................................
-router.delete("/delete/:id",async(req,res)=>{
+router.delete("/delete/:id",checkauth,async(req,res)=>{
 
         try{
             const _id= req.params.id
