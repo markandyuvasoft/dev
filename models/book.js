@@ -6,12 +6,18 @@ import Author from "../models/author.js";
 const bookSchema=new mongoose.Schema({
     name:{
         type:String,
-    },
-      author:Author.schema,
-    genre:{
-        
+    
+        },
+    email:{
         type:String,
-    }
+    
+        },
+    password:{
+        type:String,
+    
+        },
+        
+
 
 })
 

@@ -28,24 +28,39 @@ router.get("/get",(req,res)=>{
 })
 
 
-router.post('/post', async (req, res) => {
-    const data = new Book({
-        name:req.body.bookname,
-        author:{
-            name:req.body.authorname,
-            age:req.body.authorage
-        },
-        genre:req.body.genre
-    })
+// router.post('/post', async (req, res) => {
+//     const data = new Book({
+//         name:req.body.bookname,
+//         author:{
+//             name:req.body.authorname,
+//             age:req.body.authorage
+//         },
+//         genre:req.body.genre
+//     })
 
-    try {
-        const dataToSave = await data.save();
-        res.status(200).json(dataToSave)
-    }
-    catch (error) {
-        res.status(400).json({message: error.message})
-    }
-})
+//     try {
+//         const dataToSave = await data.save();
+//         res.status(200).json(dataToSave)
+//     }
+//     catch (error) {
+//         res.status(400).json({message: error.message})
+//     }
+// })
+
+router.post("/post",(req,res,next)=>{
+
+    const user = new Book(req.body)
+  
+    user.save().then(()=>{
+
+    res.status(201).send(user)
+
+    }).catch((err)=>{
+  
+    res.status(400).send(err)
+
+    }) 
+  })
 
 export default router
 
