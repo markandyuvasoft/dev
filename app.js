@@ -22,16 +22,9 @@ mongoose
  .connect(process.env.MONGO_URL, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
-           })   
+           },6000000)   
  .then(() => console.log("Database connected!"))
  .catch(err => console.log(err));
-
-
-
-
-
-
-
 
 
 // server port
