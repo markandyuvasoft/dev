@@ -17,15 +17,12 @@ app.use("/",router)
 
 
 const PORT=process.env.PORT||3000
-
-mongoose 
- .connect(process.env.MONGO_URL, {
-        useNewUrlParser: true,
-        useUnifiedTopology: true,
-           },6000000)   
- .then(() => console.log("Database connected!"))
- .catch(err => console.log(err));
-
+// connect mongo db atlas
+mongoose.connect(process.env.MONGO_URL,{usenewurlparser:true,}).then(()=>{
+    console.log("connected to mongodb atlas")
+}).catch(error=>{
+console.log("something wrong")
+})
 
 // server port
 app.listen(PORT,()=>{
