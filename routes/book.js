@@ -2,7 +2,7 @@ import  express  from "express";
 import Book from "../models/book.js";
 const router=express.Router()
 
-
+//post method start......................................
 router.post("/post",(req,res,next)=>{
 
     const user = new Book(req.body)
@@ -17,9 +17,10 @@ router.post("/post",(req,res,next)=>{
 
     }) 
   })
+//post method end......................................
 
-
-  router.get("/get",async(req,res)=>{
+//get method start......................................
+router.get("/get",async(req,res)=>{
 
     try{
 
@@ -32,7 +33,9 @@ router.post("/post",(req,res,next)=>{
     res.status(400).send(err)
     }
 })
+//get method end......................................
 
+//put method start......................................
 router.put("/update/:id", async (req,res)=>{
     try{
     
@@ -47,9 +50,10 @@ router.put("/update/:id", async (req,res)=>{
     res.status(400).send(err)
     }
     })
+//put method end......................................
 
-
-    router.delete("/delete/:id",async(req,res)=>{
+//delete method start......................................
+router.delete("/delete/:id",async(req,res)=>{
 
         try{
             const _id= req.params.id
@@ -63,5 +67,6 @@ router.put("/update/:id", async (req,res)=>{
             res.status(500).send(err)
         }
     })
+//delete method end......................................
 export default router
 

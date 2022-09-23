@@ -1,5 +1,5 @@
 import mongoose from "mongoose";
-import Author from "../models/author.js";
+
 
 // book schema
 
@@ -8,11 +8,11 @@ const bookSchema=new mongoose.Schema({
         type:String,
     
         },
-    email:{
+    age:{
         type:String,
     
         },
-    password:{
+    city:{
         type:String,
     
         },

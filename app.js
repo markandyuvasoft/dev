@@ -2,6 +2,7 @@ import  express  from "express";
 import mongoose from "mongoose";
 import dotenv from 'dotenv'
 import router from './routes/book.js'
+import authrouter from "./routes/auth.js";
 
 dotenv.config()
 const app=express();
@@ -14,6 +15,7 @@ app.use(express.urlencoded({extended:true}));
 
 // routes
 app.use("/",router)
+app.use("/",authrouter)
 
 
 const PORT=process.env.PORT||3000
