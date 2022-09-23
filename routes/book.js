@@ -23,7 +23,7 @@ const router=express.Router()
 // })
 
 
-router.get("/get",(req,res)=.{
+router.get("/get",(req,res)=>{
     res.send("home")
 })
 
