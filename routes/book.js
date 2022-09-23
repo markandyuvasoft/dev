@@ -23,6 +23,11 @@ const router=express.Router()
 // })
 
 
+router.get("/get",(req,res)=.{
+    res.send("home")
+})
+
+
 router.post('/post', async (req, res) => {
     const data = new Book({
         name:req.body.bookname,
